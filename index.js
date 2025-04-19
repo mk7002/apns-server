@@ -1,9 +1,15 @@
-const express = require('express');
-const http2 = require('http2');
-const bodyParser = require('body-parser');
+const express = require("express");
+const cors = require("cors"); // ✅ add this
+const http2 = require("http2");
+const bodyParser = require("body-parser");
 
 const app = express();
+
+// ✅ enable CORS for all origins
+app.use(cors());
+
 app.use(bodyParser.json());
+
 
 app.post('/send', async (req, res) => {
     try {
